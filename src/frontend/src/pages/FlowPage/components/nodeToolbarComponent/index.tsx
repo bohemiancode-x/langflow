@@ -597,12 +597,13 @@ export default function NodeToolbarComponent({
             size={"x-small"}
             icon={"SaveAll"}
             index={6}
-            onConfirm={(index, user) => {
+            onConfirm={() => {
               addFlow({
                 flow: flowComponent,
                 override: true,
               });
               setSuccessData({ title: `${data.id} successfully overridden!` });
+              setShowOverrideModal(false);
             }}
             onClose={() => setShowOverrideModal(false)}
             onCancel={() => {
@@ -611,6 +612,7 @@ export default function NodeToolbarComponent({
                 override: true,
               });
               setSuccessData({ title: "New component successfully saved!" });
+              setShowOverrideModal(false);
             }}
           >
             <ConfirmationModal.Content>
